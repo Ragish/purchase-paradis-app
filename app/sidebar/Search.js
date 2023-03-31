@@ -1,6 +1,4 @@
-import React from "react";
-
-const Sidebar = ({ onSearch }) => {
+const Search = ({ onSearch }) => {
   const handleSearch = (e) => {
     onSearch(e.target.value);
   };
@@ -18,4 +16,4 @@ const Sidebar = ({ onSearch }) => {
   );
 };
 
-export default Sidebar;
+export default Search;

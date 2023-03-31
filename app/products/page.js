@@ -1,24 +1,16 @@
+//app/products/page.js
+
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ProductListing from "./ProductListing";
-import Sidebar from "../sidebar/Sidebar";
+import Search from "../sidebar/Search";
 import FilterProducts from "../sidebar/FilterProducts";
-
-async function fetchProducts() {
-  const response = await fetch("http://localhost:3000/api/all-products");
-  const data = await response.json();
-  return data;
-}
+import Category from "../sidebar/Category";
 
 export default function Page() {
-  const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const filteredProducts = FilterProducts(products, searchQuery);
-
-  useEffect(() => {
-    fetchProducts().then((data) => setProducts(data));
-  }, []);
+  const { products, searchQuery, filteredProducts, setSearchQuery } =
+    FilterProducts();
 
   const handleSearch = (query) => {
     setSearchQuery(query);
@@ -26,7 +18,8 @@ export default function Page() {
 
   return (
     <div>
-      <Sidebar onSearch={handleSearch} />
+      <Search onSearch={handleSearch} />
+      <Category />
       <ProductListing products={filteredProducts} />
     </div>
   );
