@@ -9,6 +9,7 @@ async function fetchProducts() {
   const response = await fetch("http://localhost:3000/api/all-products");
   const data = await response.json();
   return data;
+  ds;
 }
 
 export default function Page() {
