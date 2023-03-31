@@ -1,19 +1,12 @@
-import Link from "next/link";
-import { use } from "react";
+import React from "react";
 
-async function getProductsData() {
-  return await (await fetch("http://localhost:3000/api/all-products")).json();
-}
-
-export default function ProductListing() {
-  const productData = use(getProductsData());
-
+const ProductListing = ({ products }) => {
   return (
     <div className="section-center featured-products">
       <h2 className="text-2xl font-semibold mb-6">Latest Products</h2>
       <div className="flex flex-wrap -mx-2">
-        {productData.length > 0 ? (
-          productData.map((product) => (
+        {products.length > 0 ? (
+          products.map((product) => (
             <div
               key={product._id}
               className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-2"
@@ -34,4 +27,6 @@ export default function ProductListing() {
       </div>
     </div>
   );
-}
+};
+
+export default ProductListing;

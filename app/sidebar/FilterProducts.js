@@ -1,15 +1,13 @@
-"use client";
+import { useState } from "react";
 
-import React, { useState } from "react";
-
-export default function FilteredProducts({ products }) {
-  const [filteredProducts, setFilteredProducts] = useState(products);
-
-  const handleSearch = (query) => {
-    const filtered = products.filter((product) =>
-      product.name.toLowerCase().includes(query.toLowerCase())
+const FilterProducts = (products, searchQuery) => {
+  if (searchQuery) {
+    return products.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    setFilteredProducts(filtered);
-  };
-  return { filteredProducts, handleSearch };
-}
+  } else {
+    return products;
+  }
+};
+
+export default FilterProducts;

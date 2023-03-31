@@ -1,13 +1,33 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import ProductListing from "./ProductListing";
 import Sidebar from "../sidebar/Sidebar";
-import FilteredProducts from "../sidebar/FilterProducts";
+import FilterProducts from "../sidebar/FilterProducts";
 
-export default function page() {
+async function fetchProducts() {
+  const response = await fetch("http://localhost:3000/api/all-products");
+  const data = await response.json();
+  return data;
+}
+
+export default function Page() {
+  const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const filteredProducts = FilterProducts(products, searchQuery);
+
+  useEffect(() => {
+    fetchProducts().then((data) => setProducts(data));
+  }, []);
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
   return (
     <div>
-      <Sidebar />
-      <ProductListing />
+      <Sidebar onSearch={handleSearch} />
+      <ProductListing products={filteredProducts} />
     </div>
   );
 }

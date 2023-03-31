@@ -1,12 +1,7 @@
-"use client";
+import React from "react";
 
-import React, { useState } from "react";
-
-const Sidebar = ({ products, onSearch }) => {
-  const [search, setSearch] = useState("");
-
+const Sidebar = ({ onSearch }) => {
   const handleSearch = (e) => {
-    setSearch(e.target.value);
     onSearch(e.target.value);
   };
 
@@ -16,7 +11,6 @@ const Sidebar = ({ products, onSearch }) => {
       <input
         type="text"
         placeholder="Search..."
-        value={search}
         onChange={handleSearch}
         className="w-full p-2 border border-gray-300 rounded"
       />
