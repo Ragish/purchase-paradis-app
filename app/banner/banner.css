@@ -1,0 +1,36 @@
+.banner {
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+}
+
+.banner h1 {
+  margin-bottom: 2rem;
+}
+.banner p {
+  font-size: 1.25rem;
+}
+
+.banner p {
+  line-height: 2;
+  max-width: 45em;
+  margin-bottom: 2rem;
+  color: var(--clr-grey-5);
+  font-size: 1rem;
+}
+.banner .img-container {
+  display: block;
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+}
+.banner .main-img {
+  width: 100%;
+  height: 550px;
+  position: relative;
+  border-radius: var(--radius);
+  display: block;
+  object-fit: cover;
+}
