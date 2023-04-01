@@ -2,13 +2,21 @@
 
 import React from "react";
 
-function Catgory() {
+function Category({ onCategorySelect }) {
+  const categories = ["All", "office"];
+
   return (
     <div>
       <h2>Category</h2>
-      <ul></ul>
+      <ul>
+        {categories.map((category) => (
+          <li key={category} onClick={() => onCategorySelect(category)}>
+            {category}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-export default Catgory;
+export default Category;

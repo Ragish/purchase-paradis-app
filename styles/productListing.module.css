@@ -1,0 +1,10 @@
+.product-details {
+  display: flex;
+  align-items: baseline;
+}
+.product-details h3 {
+  flex-grow: 1;
+}
+.product-details span {
+  text-align: right;
+}

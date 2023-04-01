@@ -1,10 +1,12 @@
+//app/sidebar/Search.js
+
 const Search = ({ onSearch }) => {
   const handleSearch = (e) => {
     onSearch(e.target.value);
   };
 
   return (
-    <aside className="sidebar w-1/4 bg-gray-100 p-4">
+    <aside className="search w-1/4 bg-gray-100 p-4">
       <h2 className="text-2xl font-semibold mb-4">Search Products</h2>
       <input
         type="text"
