@@ -2,11 +2,21 @@
 
 import React, { useState } from "react";
 import styles from "../../styles/productListing.module.css";
+import Image from "next/image";
+// import Link from "next/link";
+
+import { useRouter } from "next/navigation";
 
 const ProductListing = ({ products }) => {
+  const router = useRouter();
+
+  function handleClick(productName) {
+    router.push(`/products/${productName}`);
+  }
+
   const [loaded, setLoaded] = useState(false);
   return (
-    <div className="section-center featured-products">
+    <div className="featured-products w-full">
       <h2 className="text-2xl font-semibold mb-6">Latest Products</h2>
       <div className="flex flex-wrap -mx-6">
         {products.length > 0 ? (
@@ -20,8 +30,11 @@ const ProductListing = ({ products }) => {
                 key={product._id}
                 className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-2"
               >
-                <div className="bg-white rounded-md p-4 h-full flex flex-col">
-                  <img
+                <div
+                  className="bg-white rounded-md p-4 h-full flex flex-col"
+                  onClick={() => handleClick(product.name)}
+                >
+                  <Image
                     src={product.image}
                     alt={product.name}
                     className={`w-full h-48 object-cover object-center mb-4 rounded transition-opacity duration-500 ${
@@ -29,7 +42,10 @@ const ProductListing = ({ products }) => {
                     }`}
                     loading="lazy"
                     onLoad={handleImageLoad}
+                    width={262}
+                    height={192}
                   />
+
                   <div className={styles["product-details"]}>
                     <h3 className="text-xl font-semibold">{product.name}</h3>
                     <span>{product.price}</span>

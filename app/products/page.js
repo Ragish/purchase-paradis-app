@@ -9,6 +9,8 @@ import FilterProducts from "../sidebar/FilterProducts";
 import Category from "../sidebar/Category";
 import ColorFilter from "../sidebar/ColorFilter";
 import CompanyFilter from "../sidebar/CompanyFilter";
+import styles from "../../styles/productsPage.module.css";
+import PriceFilter from "../sidebar/PriceFilter";
 
 export default function Page() {
   const {
@@ -19,6 +21,10 @@ export default function Page() {
     setCategoryFilter,
     setColorFilter,
     setCompanyFilter,
+    minPrice,
+    maxPrice,
+    setMinPrice,
+    setMaxPrice,
   } = FilterProducts();
 
   const handleSearch = (query) => {
@@ -36,14 +42,46 @@ export default function Page() {
   const handleCompanySelection = (company) => {
     setCompanyFilter(company);
   };
+  const handleMinPriceSelection = (minimum) => {
+    setMinPrice(minimum);
+  };
+  const handleMaxPriceSelection = (maximum) => {
+    setMaxPrice(maximum);
+  };
+  // console.log(minPrice);
+  // console.log(maxPrice);
+
+  const clearFilters = () => {
+    setSearchQuery("");
+    setCategoryFilter("All");
+    setColorFilter("All");
+    setCompanyFilter("All");
+    setMinPrice("");
+    setMaxPrice("");
+  };
 
   return (
-    <div>
-      <Search onSearch={handleSearch} />
-      <Category onCategorySelect={handleCategorySelection} />
-      <ColorFilter onColorSelect={handleColorSelection} />
-      <CompanyFilter onCompanySelect={handleCompanySelection} />
-      <ProductListing products={filteredProducts} />
+    <div
+      className={`${styles["productPage"]} mx-auto w-11/12 md:w-10/12 lg:w-9/12 flex items-start`}
+    >
+      <aside className="flex flex-wrap w-full flex-col">
+        <Search onSearch={handleSearch} />
+        <Category onCategorySelect={handleCategorySelection} />
+        <ColorFilter onColorSelect={handleColorSelection} />
+        <CompanyFilter onCompanySelect={handleCompanySelection} />
+        <PriceFilter
+          onMinPriceChange={handleMinPriceSelection}
+          onMaxPriceChange={handleMaxPriceSelection}
+        />
+        <button
+          onClick={clearFilters}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Clear Filters
+        </button>
+      </aside>
+
+      <ProductListing className="w-3/4" products={filteredProducts} />
     </div>
   );
 }

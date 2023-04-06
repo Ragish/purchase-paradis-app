@@ -7,7 +7,7 @@ function Category({ onCategorySelect }) {
 
   return (
     <div>
-      <h2>Category</h2>
+      <h5>Category</h5>
       <ul>
         {categories.map((category) => (
           <li key={category} onClick={() => onCategorySelect(category)}>

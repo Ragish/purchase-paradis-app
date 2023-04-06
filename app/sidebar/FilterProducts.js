@@ -8,7 +8,6 @@ function FilterProducts() {
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [colorFilter, setColorFilter] = useState("All");
   const [companyFilter, setCompanyFilter] = useState("All");
-  const [priceFilter, setPriceFilter] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");

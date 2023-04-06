@@ -8,6 +8,7 @@ async function getProductsData() {
 
 export default function LatestProducts() {
   const productData = use(getProductsData());
+  console.log(productData);
 
   return (
     <div className="section-center featured-products">

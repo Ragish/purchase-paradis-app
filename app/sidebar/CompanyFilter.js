@@ -7,7 +7,7 @@ function CompanyFilter({ onCompanySelect }) {
 
   return (
     <div>
-      <h2>Company</h2>
+      <h5>Company</h5>
       <ul>
         {companies.map((company) => (
           <li key={company} onClick={() => onCompanySelect(company)}>

@@ -7,7 +7,7 @@ function ColorFilter({ onColorSelect }) {
 
   return (
     <div>
-      <h2>Color</h2>
+      <h5>Color</h5>
       <ul>
         {colors.map((color) => (
           <li key={color} onClick={() => onColorSelect(color)}>
