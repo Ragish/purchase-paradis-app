@@ -8,7 +8,10 @@ function FilterProducts() {
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [colorFilter, setColorFilter] = useState("All");
   const [companyFilter, setCompanyFilter] = useState("All");
+  const [priceFilter, setPriceFilter] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -49,11 +52,39 @@ function FilterProducts() {
               (product) => product.company === companyFilter
             );
 
-      setFilteredProducts(filteredByCompany);
+      const parsePrice = (priceStr) => {
+        if (!priceStr) return 0;
+        const cleanedPriceStr = priceStr.replace("$", "").replace(",", "");
+        return parseFloat(cleanedPriceStr);
+      };
+
+      const filteredByPrice = filteredByCompany.filter((product) => {
+        const productPrice = parsePrice(product.price);
+
+        if (minPrice && maxPrice) {
+          return productPrice >= minPrice && productPrice <= maxPrice;
+        } else if (minPrice) {
+          return productPrice >= minPrice;
+        } else if (maxPrice) {
+          return productPrice <= maxPrice;
+        } else {
+          return true;
+        }
+      });
+
+      setFilteredProducts(filteredByPrice);
     };
 
     filter();
-  }, [searchQuery, categoryFilter, products, colorFilter, companyFilter]);
+  }, [
+    searchQuery,
+    categoryFilter,
+    products,
+    colorFilter,
+    companyFilter,
+    minPrice,
+    maxPrice,
+  ]);
 
   return {
     products,
@@ -63,6 +94,10 @@ function FilterProducts() {
     setCategoryFilter,
     setColorFilter,
     setCompanyFilter,
+    minPrice,
+    maxPrice,
+    setMinPrice,
+    setMaxPrice,
   };
 }
 
