@@ -1,6 +1,7 @@
 // app/products/ProductDetailsPage.js
 "use client";
 import React from "react";
+import Image from "next/image";
 
 async function fetchDetailsPage(slug) {
   //   console.log(slug);
@@ -37,6 +38,12 @@ function ProductDetailsPage({ params }) {
   return (
     <div>
       <h1>ProductDetailsPage: {slug}</h1>
+      <image
+        src={detailspage.image}
+        alt={detailspage.name}
+        width={550}
+        height={500}
+      />
       <p>Name: {detailspage.name}</p>
       <p>Price: {detailspage.price}</p>
     </div>
