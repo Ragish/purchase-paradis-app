@@ -17,7 +17,7 @@ const PriceFilter = ({
   };
 
   return (
-    <div className="mb-6">
+    <div className="filter priceFilter mb-6">
       <h4 className="text-lg font-semibold mb-2">Price</h4>
       <div className="flex items-center space-x-4">
         <input

@@ -9,7 +9,7 @@ import FilterProducts from "../sidebar/FilterProducts";
 import Category from "../sidebar/Category";
 import ColorFilter from "../sidebar/ColorFilter";
 import CompanyFilter from "../sidebar/CompanyFilter";
-import styles from "../../styles/productsPage.module.css";
+import styles from "./productListingPage.css";
 import PriceFilter from "../sidebar/PriceFilter";
 
 export default function Page() {
@@ -61,14 +61,12 @@ export default function Page() {
   };
 
   return (
-    <div
-      className={`${styles["productPage"]} mx-auto w-11/12 md:w-10/12 lg:w-9/12 flex items-start`}
-    >
+    <div className="productPage mx-auto w-11/12 md:w-10/12 lg:w-9/12 flex items-start">
       <aside className="flex flex-wrap w-full flex-col">
         <Search onSearch={handleSearch} />
         <Category onCategorySelect={handleCategorySelection} />
-        <ColorFilter onColorSelect={handleColorSelection} />
         <CompanyFilter onCompanySelect={handleCompanySelection} />
+        <ColorFilter onColorSelect={handleColorSelection} />
         <PriceFilter
           onMinPriceChange={handleMinPriceSelection}
           onMaxPriceChange={handleMaxPriceSelection}

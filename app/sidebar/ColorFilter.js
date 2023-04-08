@@ -1,18 +1,28 @@
-//app/sidebar/Colors.js
-
 import React from "react";
 
 function ColorFilter({ onColorSelect }) {
   const colors = ["All", "red", "green", "purple", "black", "yellow"];
 
   return (
-    <div>
+    <div className="filter colorFilter">
       <h5>Color</h5>
       <ul>
         {colors.map((color) => (
-          <li key={color} onClick={() => onColorSelect(color)}>
-            {color}
-          </li>
+          <button
+            key={color}
+            onClick={() => onColorSelect(color)}
+            style={{
+              backgroundColor: color === "All" ? "inherit" : color,
+              color: color === "All" ? "inherit" : "white",
+              border: "none",
+              borderRadius: "50%",
+              cursor: "pointer",
+              marginRight: "10px",
+              display: "inline-flex",
+            }}
+          >
+            {color === "All" ? color : ""}
+          </button>
         ))}
       </ul>
     </div>

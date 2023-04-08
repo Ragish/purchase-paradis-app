@@ -36,28 +36,26 @@ function FilterProducts() {
           : filteredBySearch.filter(
               (product) => product.category === categoryFilter
             );
-
-      const filteredByColor =
-        colorFilter === "All"
-          ? filteredByCategory
-          : filteredByCategory.filter((product) =>
-              product.color.includes(colorFilter)
-            );
-
       const filteredByCompany =
         companyFilter === "All"
-          ? filteredByColor
-          : filteredByColor.filter(
+          ? filteredByCategory
+          : filteredByCategory.filter(
               (product) => product.company === companyFilter
             );
 
+      const filteredByColor =
+        colorFilter === "All"
+          ? filteredByCompany
+          : filteredByCompany.filter((product) =>
+              product.color.includes(colorFilter)
+            );
       const parsePrice = (priceStr) => {
         if (!priceStr) return 0;
         const cleanedPriceStr = priceStr.replace("$", "").replace(",", "");
         return parseFloat(cleanedPriceStr);
       };
 
-      const filteredByPrice = filteredByCompany.filter((product) => {
+      const filteredByPrice = filteredByColor.filter((product) => {
         const productPrice = parsePrice(product.price);
 
         if (minPrice && maxPrice) {

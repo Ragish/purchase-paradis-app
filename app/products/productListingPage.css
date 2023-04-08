@@ -1,0 +1,26 @@
+.productPage {
+  margin: 6rem auto;
+  max-width: var(--max-width);
+  align-items: flex-start;
+  column-gap: 2.2rem;
+}
+.productPage aside {
+  row-gap: 1.5rem;
+  max-width: 250px;
+}
+.featured-products {
+  display: flex;
+  flex-direction: column;
+}
+
+aside .filter li {
+  line-height: 1.7;
+  color: var(--clr-grey-5);
+}
+.colorFilter ul {
+  display: inline-flex;
+}
+.colorFilter ul button {
+  line-height: 0.1;
+  padding: 10px;
+}

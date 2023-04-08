@@ -1,0 +1,32 @@
+.cartPage {
+  margin: 6rem auto;
+  max-width: var(--max-width);
+  align-items: flex-start;
+  -moz-column-gap: 2.2rem;
+  column-gap: 2.2rem;
+}
+.cartPageRow {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 25px;
+}
+.cartPageColumn {
+  width: 25%;
+}
+.cartPageRow.title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #444;
+  text-align: left;
+  margin-bottom: 25px;
+}
+img.productThumbnail {
+  margin-bottom: 10px;
+}
+span.productName {
+  font-weight: 500;
+}

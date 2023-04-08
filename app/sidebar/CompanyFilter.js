@@ -6,7 +6,7 @@ function CompanyFilter({ onCompanySelect }) {
   const companies = ["All", "Ikea", "Liddy", "Caressa", "Marcos", "sa"];
 
   return (
-    <div>
+    <div className="filter companyFilter">
       <h5>Company</h5>
       <ul>
         {companies.map((company) => (

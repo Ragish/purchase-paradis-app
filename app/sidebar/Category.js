@@ -6,7 +6,7 @@ function Category({ onCategorySelect }) {
   const categories = ["All", "office"];
 
   return (
-    <div>
+    <div className="filter categoryFilter">
       <h5>Category</h5>
       <ul>
         {categories.map((category) => (

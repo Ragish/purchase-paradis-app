@@ -6,7 +6,7 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div className="search bg-gray-100 p-4">
+    <div className="filter searchFilter bg-gray-100 p-4">
       <input
         type="text"
         placeholder="Search..."
