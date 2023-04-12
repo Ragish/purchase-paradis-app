@@ -160,6 +160,9 @@ p {
   margin: 10rem auto 0;
   width: 6rem;
 }
+.main {
+  padding-bottom: 50px;
+}
 .btn {
   background: #ab7a5f;
   background: var(--clr-primary-5);

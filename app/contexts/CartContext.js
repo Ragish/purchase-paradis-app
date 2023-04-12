@@ -7,20 +7,44 @@ const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [quantities, setQuantities] = useState({});
+  const [cartItemCount, setCartItemCount] = useState(0);
 
-  const addToCart = (product, quantity) => {
-    const newProduct = {
-      ...product,
-      quantity: quantity,
-    };
+  const addToCart = (product, quantity = 1, productId) => {
+    const existingProductIndex = cart.findIndex(
+      (item) => item.id === productId
+    );
 
-    const updatedCart = [...cart, newProduct];
+    let updatedCart;
+
+    if (existingProductIndex >= 0) {
+      updatedCart = [...cart];
+      updatedCart[existingProductIndex].quantity += quantity;
+    } else {
+      const newProduct = {
+        ...product,
+        id: productId,
+        quantity: quantity,
+      };
+
+      updatedCart = [...cart, newProduct];
+      setQuantities((prevQuantities) => ({
+        ...prevQuantities,
+        [productId]: quantity,
+      }));
+    }
+
     setCart(updatedCart);
+
+    // Update the cart item count
+    setCartItemCount(updatedCart.length);
   };
 
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((item) => item.id !== productId);
     setCart(updatedCart);
+
+    // Update the cart item count
+    setCartItemCount(updatedCart.length);
   };
 
   const incrementQuantity = (productId) => {
@@ -37,6 +61,11 @@ const CartProvider = ({ children }) => {
     }));
   };
 
+  const clearShoppingCart = () => {
+    setCart([]);
+    setCartItemCount(0);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -46,6 +75,8 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         incrementQuantity,
         decrementQuantity,
+        clearShoppingCart,
+        cartItemCount, // Add cartItemCount here
       }}
     >
       {children}

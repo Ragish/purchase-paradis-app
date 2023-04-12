@@ -1,10 +1,14 @@
-//app/Header.js
+//app/Header/Header.js
+"use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { CartContext } from "../contexts/CartContext";
 
 const Header = () => {
+  const { cart, cartItemCount } = useContext(CartContext);
+
   return (
     <header className="header py-4 shadow-md">
       <nav className="nav-center mx-auto w-11/12 md:w-10/12 lg:w-9/12 flex items-center justify-between">
@@ -55,7 +59,7 @@ const Header = () => {
           >
             Cart
             <span className="cart-container ml-2">
-              <span className="cart-value">0</span>
+              <span className="cart-value">{cartItemCount}</span>
             </span>
           </Link>
           <button type="button" className="auth-btn">

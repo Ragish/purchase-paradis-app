@@ -40,10 +40,12 @@ span.productPrice {
   column-gap: 30px;
   margin: 30px 0 20px;
 }
-.addToCartBlock .btn {
-  background-color: #42d7c0;
+.btn,
+button.btn {
+  background-color: #42d7c0 !important;
 }
 
-.addToCartBlock .btn:hover {
-  background-color: #6be9d6;
+.btn:hover,
+button.btn:hover {
+  background-color: #6be9d6 !important;
 }

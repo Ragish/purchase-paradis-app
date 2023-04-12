@@ -4,6 +4,7 @@
   align-items: flex-start;
   -moz-column-gap: 2.2rem;
   column-gap: 2.2rem;
+  margin-bottom: 8rem;
 }
 .cartPageRow {
   display: flex;
@@ -29,4 +30,41 @@ img.productThumbnail {
 }
 span.productName {
   font-weight: 500;
+}
+.clearCartRow {
+  justify-content: flex-end;
+}
+
+/********** cart totla block **************/
+.item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+.cartTotalRow {
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-end;
+}
+span.value {
+  width: 80px;
+}
+.cartValueBox > .item:first-child span {
+  font-weight: 700;
+}
+.cartValueBox > .item:last-child span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.cartValueBox {
+  padding: 20px 20px 20px 50px;
+  border: 1px solid #dbd6d6;
+  margin-top: 50px;
+  border-radius: 5px;
+  width: 400px;
+}
+.cartValueBox > .item:nth-child(2) {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dbd6d6;
 }
