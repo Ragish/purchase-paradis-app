@@ -242,10 +242,12 @@ const products = [
   //   },
 ];
 
-(async () => {
+async function insertProducts() {
   const client = await clientPromise;
   const db = client.db();
   await db.collection("products").insertMany(products);
   console.log("Products inserted successfully");
   client.close();
-})();
+}
+
+export { insertProducts };

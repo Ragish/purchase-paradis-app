@@ -62,9 +62,11 @@ const Header = () => {
               <span className="cart-value">{cartItemCount}</span>
             </span>
           </Link>
-          <button type="button" className="auth-btn">
-            Login
-          </button>
+          <Link href="/login">
+            <button type="button" className="auth-btn">
+              Login
+            </button>
+          </Link>
         </div>
       </nav>
     </header>
