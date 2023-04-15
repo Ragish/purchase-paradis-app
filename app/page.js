@@ -1,6 +1,5 @@
 import Head from "next/head";
 import LatestProducts from "./latestProducts/LatestProducts";
-import clientPromise from "@/lib/mongodb";
 import Banner from "./banner/Banner";
 
 export default function Home({ products }) {

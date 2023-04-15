@@ -7,9 +7,9 @@
   --clr-primary-2: #5f4435;
   --clr-primary-3: #795744;
   --clr-primary-4: #936a53;
-  --clr-primary-5: #ab7a5f;
+  --clr-primary-5: #42d7c0;
   --clr-primary-6: #b99179;
-  --clr-primary-7: #c5a491;
+  --clr-primary-7: #6be9d6;
   --clr-primary-8: #d1b6a8;
   --clr-primary-9: #decbc0;
   --clr-primary-10: #eaded7;
@@ -164,7 +164,7 @@ p {
   padding-bottom: 50px;
 }
 .btn {
-  background: #ab7a5f;
+  background: #42d7c0;
   background: var(--clr-primary-5);
   border-color: transparent;
   border-radius: 0.25rem;
@@ -184,7 +184,7 @@ p {
   transition: var(--transition);
 }
 .btn:hover {
-  background: #c5a491;
+  background: #6be9d6;
   background: var(--clr-primary-7);
   color: #453227;
   color: var(--clr-primary-1);
@@ -194,7 +194,7 @@ p {
 }
 .title .underline {
   background: #49a6e9;
-  background: #ab7a5f;
+  background: #42d7c0;
   background: var(--clr-primary-5);
   height: 0.25rem;
   margin-left: auto;

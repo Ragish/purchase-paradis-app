@@ -1,25 +1,28 @@
 //pages/api/register.js
 
-import User from "../../models/user";
+import User from "../../models/User";
 import { dbConnect } from "../../lib/mongodb";
 
 export default async function handler(req, res) {
+  await dbConnect();
+
   if (req.method === "POST") {
+    const { name, email, password } = req.body;
+
+    const newUser = new User({
+      name,
+      email,
+      password,
+    });
+
     try {
-      await dbConnect();
-
-      const { name, email, password } = req.body;
-
-      const user = await User.create({ name, email, password });
-
-      res.status(201).json({ user });
+      const savedUser = await newUser.save();
+      //console.log(savedUser);
+      res.status(201).json(savedUser);
     } catch (error) {
-      console.error("Error:", error);
-      res
-        .status(500)
-        .json({ message: "An error occurred while creating the user." });
+      res.status(400).json({ error: "Email already exists" });
     }
   } else {
-    res.status(405).json({ message: "Method not allowed" });
+    res.status(405).json({ error: "Method not allowed" });
   }
 }

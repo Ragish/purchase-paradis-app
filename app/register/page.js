@@ -23,6 +23,12 @@ const Register = () => {
 
       const data = await response.json();
       console.log(data);
+
+      if (response.ok) {
+        window.location.href = "/login";
+      } else {
+        console.error(data);
+      }
     } catch (error) {
       console.log(error);
     }

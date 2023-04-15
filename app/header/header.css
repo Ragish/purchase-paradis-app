@@ -69,3 +69,8 @@
   font-size: 0.75rem;
   color: white;
 }
+.loggedUser {
+  color: #fff;
+  font-weight: normal !important;
+  margin-bottom: 0;
+}

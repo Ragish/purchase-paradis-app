@@ -4,7 +4,6 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
-
 import { signIn } from "next-auth/react";
 
 const Login = () => {
@@ -21,7 +20,8 @@ const Login = () => {
         password,
       });
 
-      console.log(data);
+      //console.log(data);
+      window.location.href = "/products";
     } catch (error) {
       console.log(error);
     }
